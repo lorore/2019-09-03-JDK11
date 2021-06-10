@@ -33,5 +33,7 @@ public void creaGrafo(int c) {
 	System.out.println(graph.edgeSet().size());
 	
 }
+
+
 	
 }
