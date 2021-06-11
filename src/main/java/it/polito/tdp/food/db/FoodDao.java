@@ -114,7 +114,7 @@ public class FoodDao {
 	public List<String> getVertici(int c) {
 		
 		String sql="SELECT DISTINCT p.portion_display_name as p "
-				+ "FROM porzione AS p "
+				+ "FROM 'portion' AS p "
 				+ "WHERE p.calories<? "
 				+ "ORDER BY p.portion_display_name ";
 		List<String> result=new ArrayList<>();
@@ -141,7 +141,7 @@ public class FoodDao {
 	
 	public List<Adiacenza> getArchi(int c) {
 		String sql="SELECT p.portion_display_name AS p1, p2.portion_display_name AS p2, COUNT(DISTINCT p.food_code) AS peso "
-				+ "FROM porzione AS p, porzione AS p2 "
+				+ "FROM 'portion' AS p, 'portion' AS p2 "
 				+ "WHERE p.calories<? AND p2.calories<? AND p.portion_display_name>p2.portion_display_name AND p.food_code=p2.food_code "
 				+ "GROUP BY p.portion_display_name, p2.portion_display_name";
 		
